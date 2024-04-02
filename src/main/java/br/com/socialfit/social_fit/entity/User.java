@@ -2,26 +2,32 @@ package br.com.socialfit.social_fit.entity;
 
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
-
+@Entity(name = "user")
 public class User {
     @Id
-    @NotNull
-    private int id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     @NotBlank
     private String name;
     @NotBlank
@@ -48,4 +54,6 @@ public class User {
     private Date birthDate;
     @NotNull
     private double weight;
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 }
