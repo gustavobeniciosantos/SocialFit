@@ -14,10 +14,11 @@ public class CreateUser {
     public User execute(User user){
 
         System.out.println(user);
-        this.userRepository.findByUsernameOrEmail(user.getUsername(), user.getEmail()).ifPresent((users) -> {
+        this.userRepository.findByUsernameOrEmailOrCPF(user.getUsername(), user.getEmail(), user.getCPF()).ifPresent((users) -> {
             throw new UserFoundExeption();
         });
         return this.userRepository.save(user);
 
     }
+
 }
