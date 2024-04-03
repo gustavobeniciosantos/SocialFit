@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Data
-@Entity(name = "user")
+@Entity(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
