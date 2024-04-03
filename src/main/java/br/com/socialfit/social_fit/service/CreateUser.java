@@ -1,4 +1,4 @@
-package br.com.socialfit.social_fit.useCases;
+package br.com.socialfit.social_fit.service;
 
 import br.com.socialfit.social_fit.entity.User;
 import br.com.socialfit.social_fit.entity.UserRepository;
@@ -11,9 +11,8 @@ import org.springframework.stereotype.Service;
 public class CreateUser {
     @Autowired
     private UserRepository userRepository;
-    public User execute(User user){
+    public User executeRegister(User user){
 
-        System.out.println(user);
         this.userRepository.findByUsernameOrEmailOrCPF(user.getUsername(), user.getEmail(), user.getCPF()).ifPresent((users) -> {
             throw new UserFoundExeption();
         });

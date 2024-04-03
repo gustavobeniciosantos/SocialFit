@@ -6,4 +6,6 @@ public class UserFoundExeption extends RuntimeException{
         super("Usuário já existe");
 
     }
+
+
 }
