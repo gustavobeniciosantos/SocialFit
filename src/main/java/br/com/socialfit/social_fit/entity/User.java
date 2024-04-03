@@ -34,7 +34,7 @@ public class User {
     @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "O campo [username] não deve conter espaço")
     private String username;
     @NotBlank
-    @Length(min = 10, max = 100, message = "A senha deve ter entre 10 e 100 caracteres")
+    @Length(min = 8, max = 100, message = "A senha deve ter entre 10 e 100 caracteres")
     private String password;
     @NotBlank
     @Email(message = "O campo [email] deve conter um e-mail válido")
