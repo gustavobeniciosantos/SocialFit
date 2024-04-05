@@ -11,7 +11,7 @@ import java.io.IOException;
 
 //Serve para realizar a regra de negócio para criação de um novo usuário
 @Service
-public class CreateUser {
+public class CreateUserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired

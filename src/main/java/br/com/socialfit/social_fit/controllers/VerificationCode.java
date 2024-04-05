@@ -10,9 +10,7 @@ public class VerificationCode {
     private int code;
     public int getCode() {
 
-        int code = this.code = GenerateCode.generatedCode();
-        System.out.println("Codigo getCode: "+ code);
-        return code;
+        return this.code = GenerateCode.generatedCode();
     }
 }
 
