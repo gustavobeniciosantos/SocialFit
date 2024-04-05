@@ -18,13 +18,13 @@ public class CreateUser {
     EmailService emailService;
     public User executeRegister(User user){
 
+
         this.userRepository.findByUsernameOrEmailOrCPF(user.getUsername(), user.getEmail(), user.getCPF()).ifPresent((users) -> {
             throw new UserFoundExeption();
         });
         try {
-            emailService.enviarEmailConfirmacao(user.getEmail());
+            emailService.sendMailConfirm(user.getEmail());
         } catch (MessagingException | IOException e) {
-            // Trate exceções de envio de e-mail aqui
             e.printStackTrace();
         }
         return this.userRepository.save(user);

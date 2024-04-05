@@ -19,7 +19,7 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
-    public void enviarEmailConfirmacao(String emailDestinatario) throws MessagingException, IOException {
+    public void sendMailConfirm(String emailDestinatario) throws MessagingException, IOException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 
