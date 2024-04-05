@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two-Factor Authentication</title>
+</head>
+<body>
+<h2>Enter Verification Code</h2>
+
+<form action="/submit_verification" method="post">
+    <div class="container">
+        <label for="code"><b>Verification Code</b></label>
+        <input type="text" placeholder="Enter Verification Code" name="code" required>
+
+        <button type="submit">Verify</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="resend">Didn't receive a code? <a href="#">Resend</a></span>
+    </div>
+</form>
+</body>
+</html>

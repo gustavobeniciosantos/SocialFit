@@ -72,6 +72,8 @@ public class User {
     @JsonView(WithoutPasswordView.class)
     @NotNull
     private double weight;
+    @JsonView(WithPasswordView.class)
     @CreationTimestamp
     private LocalDateTime createdAt;
+
 }
