@@ -69,7 +69,7 @@ public class UserController {
                 e.printStackTrace();
             }
 
-            return ResponseEntity.ok().body(user);
+            return ResponseEntity.ok().body(user.getId());
         } else {
             return ResponseEntity.badRequest().body("Username or Passsword invalid");
         }
