@@ -87,10 +87,10 @@ public class UserController {
 
         if(authCodeService.isHim(GenerateCode.generatedCode(),verificationCode.getCode())){
 
-            return ResponseEntity.ok().body("Corrigo correto");
+            return ResponseEntity.ok().body("Código correto");
+        } else {
+            return ResponseEntity.badRequest().body("Código incorreto");
         }
-
-        return ResponseEntity.badRequest().body("Código incorreto");
     }
 
 

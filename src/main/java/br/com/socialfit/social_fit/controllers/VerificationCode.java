@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 public class VerificationCode {
     private int code;
-    public int getCode() {
 
-        return this.code = GenerateCode.generatedCode();
+    public int getCode() {
+        return this.code;
     }
 }
 
