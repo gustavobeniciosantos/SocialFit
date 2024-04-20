@@ -18,6 +18,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 import java.time.LocalDateTime;
@@ -67,7 +68,7 @@ public class User {
     @NotBlank
     private String gender;
     @JsonView(WithoutPasswordView.class)
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date birthDate;
     @JsonView(WithoutPasswordView.class)
     @NotNull
