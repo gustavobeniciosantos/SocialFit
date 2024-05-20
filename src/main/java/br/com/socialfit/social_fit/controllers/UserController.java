@@ -24,9 +24,6 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    private CreateUserService createUserService;
-
-    @Autowired
     private LoginUserService loginUserService;
 
     @Autowired
@@ -37,13 +34,15 @@ public class UserController {
     @Autowired
     EmailService emailService;
     AuthCodeService authCodeService = new AuthCodeService();
+@Autowired
+    UserService userService;
 
     @JsonView(User.WithoutPasswordView.class)
     @PostMapping("/signup")
     public ResponseEntity<Object> createUser(@RequestBody @Valid User user ){
 
         try {
-           this.createUserService.executeRegister(user);
+           this.userService.createUser(user);
            return ResponseEntity.created(URI.create("/"+user.getId())).body(user);
         }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

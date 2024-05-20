@@ -1,23 +1,34 @@
 package br.com.socialfit.social_fit.service;
 
 import br.com.socialfit.social_fit.entity.User;
-import br.com.socialfit.social_fit.entity.UserRepository;
 import br.com.socialfit.social_fit.exeption.UserFoundExeption;
+import br.com.socialfit.social_fit.repositories.UserRepository;
 import jakarta.mail.MessagingException;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.UUID;
 
-//Serve para realizar a regra de negócio para criação de um novo usuário
+
 @Service
-public class CreateUserService {
+public class UserService {
+    @Autowired
+    private EmailService emailService;
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    EmailService emailService;
-    public User executeRegister(User user){
 
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getUserById(UUID id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public User createUser(@NotNull User user) {
 
         this.userRepository.findByUsernameOrEmailOrCPF(user.getUsername(), user.getEmail(), user.getCPF()).ifPresent((users) -> {
             throw new UserFoundExeption();
@@ -30,4 +41,8 @@ public class CreateUserService {
         return this.userRepository.save(user);
     }
 
+
+    public void deleteUser(UUID id) {
+        userRepository.deleteById(id);
+    }
 }

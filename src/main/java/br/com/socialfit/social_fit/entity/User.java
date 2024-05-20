@@ -70,9 +70,6 @@ public class User {
     @JsonView(WithoutPasswordView.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date birthDate;
-    @JsonView(WithoutPasswordView.class)
-    @NotNull
-    private double weight;
     @JsonView(WithPasswordView.class)
     @CreationTimestamp
     private LocalDateTime createdAt;

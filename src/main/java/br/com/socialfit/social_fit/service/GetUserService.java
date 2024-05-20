@@ -1,7 +1,7 @@
 package br.com.socialfit.social_fit.service;
 
 import br.com.socialfit.social_fit.entity.User;
-import br.com.socialfit.social_fit.entity.UserRepository;
+import br.com.socialfit.social_fit.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,6 @@
-package br.com.socialfit.social_fit.entity;
+package br.com.socialfit.social_fit.repositories;
 
+import br.com.socialfit.social_fit.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
